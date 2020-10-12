@@ -1,14 +1,40 @@
 package com.company;
 
+import com.company.Entities.Andrey;
+
 import java.util.Scanner;
 
 public class PlayerController {
     int CurrentState;
-    Andrey controlledAndrei;
-    GameState gameState;
+    private Andrey controlledAndrei;
+    private GameState gameState;
 
     public PlayerController(Andrey controlled) {
        controlledAndrei = controlled;
+    }
+
+    public int getCurrentState() {
+        return CurrentState;
+    }
+
+    public void setCurrentState(int currentState) {
+        CurrentState = currentState;
+    }
+
+    public Andrey getControlledAndrei() {
+        return controlledAndrei;
+    }
+
+    public void setControlledAndrei(Andrey controlledAndrei) {
+        this.controlledAndrei = controlledAndrei;
+    }
+
+    public GameState getGameState() {
+        return gameState;
+    }
+
+    public void setGameState(GameState gameState) {
+        this.gameState = gameState;
     }
 
     public void DoCommand() {
@@ -42,10 +68,10 @@ public class PlayerController {
     }
 
     private void GoToMirea() {
-        controlledAndrei.stats.setXp(controlledAndrei.stats.getXp()+100);
-        controlledAndrei.stats.setStamina(controlledAndrei.stats.getStamina()-25);
+        controlledAndrei.getStats().setXp(controlledAndrei.getStats().getXp()+100);
+        controlledAndrei.getStats().setStamina(controlledAndrei.getStats().getStamina()-25);
         System.out.println("Ваш Андрей сходил в ВУЗ и поумнел! Но при этом устал!");
-        System.out.println(controlledAndrei.stats);
+        System.out.println(controlledAndrei.getStats());
 
     }
 
@@ -65,3 +91,5 @@ public class PlayerController {
         controlledAndrei.ApplyDamage(controlledAndrei, 100);
     }
 }
+
+

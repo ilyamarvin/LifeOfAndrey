@@ -1,9 +1,11 @@
 package com.company;
 
+import com.company.Entities.Andrey;
+
 public class Stats {
     private int hp = 100, xp = 0, stamina = 50;
 
-    Andrey owner;
+    private Andrey owner;
 
     public Stats(Andrey setOwner, int hp, int xp, int stamina) {
         this.hp = hp;
@@ -38,6 +40,14 @@ public class Stats {
 
     public void setStamina(int stamina) {
         this.stamina = stamina;
+    }
+
+    public Andrey getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Andrey owner) {
+        this.owner = owner;
     }
 
     @Override

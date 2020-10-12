@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.Entities.Andrey;
+
 import java.util.Scanner;
 
 public class Main {
@@ -31,7 +33,7 @@ public class Main {
             }
             System.out.println("Цель игры - сделать из Андрея нормального человека!");
 
-            andrey.controller.DoCommand();
+            andrey.getController().DoCommand();
 
         }
 

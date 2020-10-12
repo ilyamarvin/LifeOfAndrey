@@ -1,21 +1,26 @@
-package com.company;
+package com.company.Entities;
 
-public class Andrey implements Damage{
+import com.company.Damage;
+import com.company.GameState;
+import com.company.PlayerController;
+import com.company.Stats;
+
+public class Andrey implements Damage {
     final private String NAME = "Andrey";
     private int age;
-    Stats stats;
-    PlayerController controller;
+    private Stats stats;
+    private PlayerController controller;
 
     public void EndOfHealth() {
         System.out.println("ВАШ АНДРЕЙ ЗДОХ");
-        controller.gameState.setEnd(true);
+        controller.getGameState().setEnd(true);
     }
 
 
     public Andrey(GameState gameState) {
         stats  = new Stats(this,100, 0, 50);
         controller = new PlayerController(this);
-        controller.gameState = gameState;
+        controller.setGameState(gameState);
     }
 
     public Andrey(int age) {
@@ -32,6 +37,22 @@ public class Andrey implements Damage{
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Stats getStats() {
+        return stats;
+    }
+
+    public void setStats(Stats stats) {
+        this.stats = stats;
+    }
+
+    public PlayerController getController() {
+        return controller;
+    }
+
+    public void setController(PlayerController controller) {
+        this.controller = controller;
     }
 
     @Override
