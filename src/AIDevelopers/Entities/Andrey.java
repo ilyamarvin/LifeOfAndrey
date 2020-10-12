@@ -5,12 +5,13 @@ import AIDevelopers.GameMechanics.GameState;
 import AIDevelopers.GameMechanics.PlayerController;
 import AIDevelopers.Interfaces.DamageInterface;
 
-public class Andrey implements DamageInterface {
+public class Andrey extends BaseEntity {
     final private String NAME = "Andrey";
     private int age;
     private Stats stats;
     private PlayerController controller;
 
+    @Override
     public void EndOfHealth() {
         System.out.println("ВАШ АНДРЕЙ ЗДОХ");
         controller.getGameState().setEnd(true);
@@ -56,7 +57,7 @@ public class Andrey implements DamageInterface {
     }
 
     @Override
-    public void ApplyDamage(Andrey damagedAndrey, int DamageToApply) {
+    public void ApplyDamage(Andrey damagedAndrey, float DamageToApply) {
         stats.setHp(stats.getHp()-DamageToApply);
     }
 }

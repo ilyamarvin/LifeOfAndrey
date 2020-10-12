@@ -3,7 +3,7 @@ package AIDevelopers.Components;
 import AIDevelopers.Entities.Andrey;
 
 public class Stats {
-    private int hp = 100, xp = 0, stamina = 50;
+    private float hp = 100, xp = 0, stamina = 50;
 
     private Andrey owner;
 
@@ -14,31 +14,31 @@ public class Stats {
         this.owner = setOwner;
     }
 
-    public int getHp() {
+    public float getHp() {
         return hp;
     }
 
-    public void setHp(int hp) {
+    public void setHp(float hp) {
         this.hp = hp;
         if (xp <= 0) {
             owner.EndOfHealth();
         }
     }
 
-    public int getXp() {
+    public float getXp() {
         return xp;
     }
 
-    public void setXp(int xp) {
+    public void setXp(float xp) {
         this.xp = xp;
 
     }
 
-    public int getStamina() {
+    public float getStamina() {
         return stamina;
     }
 
-    public void setStamina(int stamina) {
+    public void setStamina(float stamina) {
         this.stamina = stamina;
     }
 
