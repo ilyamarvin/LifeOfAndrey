@@ -1,6 +1,6 @@
-package com.company;
+package AIDevelopers.Components;
 
-import com.company.Entities.Andrey;
+import AIDevelopers.Entities.Andrey;
 
 public class Stats {
     private int hp = 100, xp = 0, stamina = 50;

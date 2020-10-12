@@ -1,11 +1,11 @@
-package com.company.Entities;
+package AIDevelopers.Entities;
 
-import com.company.Damage;
-import com.company.GameState;
-import com.company.PlayerController;
-import com.company.Stats;
+import AIDevelopers.Components.Stats;
+import AIDevelopers.GameMechanics.GameState;
+import AIDevelopers.GameMechanics.PlayerController;
+import AIDevelopers.Interfaces.DamageInterface;
 
-public class Andrey implements Damage {
+public class Andrey implements DamageInterface {
     final private String NAME = "Andrey";
     private int age;
     private Stats stats;

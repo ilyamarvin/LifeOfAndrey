@@ -1,6 +1,7 @@
-package com.company;
+package AIDevelopers;
 
-import com.company.Entities.Andrey;
+import AIDevelopers.GameMechanics.GameState;
+import AIDevelopers.Entities.Andrey;
 
 import java.util.Scanner;
 
