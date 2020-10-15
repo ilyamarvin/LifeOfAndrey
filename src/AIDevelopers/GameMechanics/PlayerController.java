@@ -42,36 +42,30 @@ public class PlayerController {
         System.out.println("////////////////////////////////////////////////");
         daysLived = 1;
         System.out.println("День " + daysLived);
+        System.out.println("Время 7:00");
         System.out.println("Что делать сегодня?");
         System.out.println("1. Идти в ВУЗ");
         System.out.println("2. Остаться дома");
-        System.out.println("3. Заняться проектом");
-        System.out.println("4. Чиллить");
-        System.out.println("5. Вскрыться");
+        System.out.println("3. Вскрыться");
         int choose;
         Scanner scanner = new Scanner(System.in);
         choose = scanner.nextInt();
 
         switch (choose) {
             case 1:
-                GoToMirea();
+                goToMirea();
                 break;
             case 2:
-                StayHome();
+                stayHome();
                 break;
             case 3:
-                DoProject();
-                break;
-            case 4:
-                Chill();
-            case 5:
-                ROSKOMNADZOR();
+                killYourself();
                 break;
         }
     }
 
-    private void GoToMirea() {
-        controlledAndrei.getStats().setXp(controlledAndrei.getStats().getXp() + 100);
+    private void goToMirea() {
+        controlledAndrei.getStats().setXp(controlledAndrei.getStats().getXp() + 50);
         controlledAndrei.getStats().setStamina(controlledAndrei.getStats().getStamina() - 25);
         System.out.println("Ваш Андрей сходил в ВУЗ и поумнел! Но при этом устал!");
         System.out.println(controlledAndrei.getStats());
@@ -79,22 +73,50 @@ public class PlayerController {
 
     }
 
-    private void StayHome() {
+    private void stayHome() {
+        System.out.println("Вы решили остаться дома");
+        System.out.println("Чем же вы займетесь дома?");
+        System.out.println("1. Занимаемся проектом");
+        System.out.println("2. Чиллим");
+
+        int choose;
+        Scanner scanner = new Scanner(System.in);
+        choose = scanner.nextInt();
+
+        switch (choose) {
+            case 1:
+                doProject();
+                break;
+            case 2:
+                chill();
+                break;
+
+        }
+
+        daysLived++;
+    }
+
+    private void doProject() {
+        System.out.println("Вы занялись проектом...");
+        controlledAndrei.getStats().setXp(controlledAndrei.getStats().getXp() + 200);
+        controlledAndrei.getStats().setStamina(controlledAndrei.getStats().getStamina() - 50);
+        System.out.println("Ваш Андрей прозанимался проектом весь день!");
+        System.out.println(controlledAndrei.getStats());
         daysLived++;
 
     }
 
-    private void DoProject() {
+    private void chill() {
+        System.out.println("Вы решили почиллить в этот день...");
+        controlledAndrei.getStats().setStamina(controlledAndrei.getStats().getStamina() - 50);
+        System.out.println("Ваш Андрей прозанимался проектом весь день!");
+        System.out.println(controlledAndrei.getStats());
         daysLived++;
 
     }
 
-    private void Chill() {
-        daysLived++;
-
-    }
-
-    private void ROSKOMNADZOR() {
+    private void killYourself() {
+        System.out.println("Вы решили покончить с жизнью.");
         controlledAndrei.ApplyDamage(controlledAndrei, 100);
         System.out.println("Дней прожито: "+daysLived);
     }

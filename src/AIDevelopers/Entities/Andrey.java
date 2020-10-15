@@ -19,7 +19,7 @@ public class Andrey extends BaseEntity {
 
 
     public Andrey(GameState gameState) {
-        stats  = new Stats(this,100, 0, 50);
+        stats  = new Stats(this,100, 0, 50, 1);
         controller = new PlayerController(this);
         controller.setGameState(gameState);
     }
