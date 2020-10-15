@@ -6,11 +6,12 @@ import java.util.Scanner;
 
 public class PlayerController {
     int CurrentState;
+    private int daysLived = 0;
     private Andrey controlledAndrei;
     private GameState gameState;
 
     public PlayerController(Andrey controlled) {
-       controlledAndrei = controlled;
+        controlledAndrei = controlled;
     }
 
     public int getCurrentState() {
@@ -38,11 +39,14 @@ public class PlayerController {
     }
 
     public void DoCommand() {
-        System.out.println("Что делаем сегодня?");
-        System.out.println("1. Идём в ВУЗ");
+        System.out.println("////////////////////////////////////////////////");
+        daysLived = 1;
+        System.out.println("День " + daysLived);
+        System.out.println("Что делать сегодня?");
+        System.out.println("1. Идти в ВУЗ");
         System.out.println("2. Остаться дома");
-        System.out.println("3. Занимаемся проектом");
-        System.out.println("4. Чиллим");
+        System.out.println("3. Заняться проектом");
+        System.out.println("4. Чиллить");
         System.out.println("5. Вскрыться");
         int choose;
         Scanner scanner = new Scanner(System.in);
@@ -60,7 +64,6 @@ public class PlayerController {
                 break;
             case 4:
                 Chill();
-                break;
             case 5:
                 ROSKOMNADZOR();
                 break;
@@ -68,27 +71,32 @@ public class PlayerController {
     }
 
     private void GoToMirea() {
-        controlledAndrei.getStats().setXp(controlledAndrei.getStats().getXp()+100);
-        controlledAndrei.getStats().setStamina(controlledAndrei.getStats().getStamina()-25);
+        controlledAndrei.getStats().setXp(controlledAndrei.getStats().getXp() + 100);
+        controlledAndrei.getStats().setStamina(controlledAndrei.getStats().getStamina() - 25);
         System.out.println("Ваш Андрей сходил в ВУЗ и поумнел! Но при этом устал!");
         System.out.println(controlledAndrei.getStats());
+        daysLived++;
 
     }
 
     private void StayHome() {
+        daysLived++;
 
     }
 
     private void DoProject() {
+        daysLived++;
 
     }
 
     private void Chill() {
+        daysLived++;
 
     }
 
     private void ROSKOMNADZOR() {
         controlledAndrei.ApplyDamage(controlledAndrei, 100);
+        System.out.println("Дней прожито: "+daysLived);
     }
 }
 
