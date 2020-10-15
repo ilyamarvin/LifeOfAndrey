@@ -3,7 +3,6 @@ package AIDevelopers.Entities;
 import AIDevelopers.Components.Stats;
 import AIDevelopers.GameMechanics.GameState;
 import AIDevelopers.GameMechanics.PlayerController;
-import AIDevelopers.Interfaces.DamageInterface;
 
 public class Andrey extends BaseEntity {
     final private String NAME = "Andrey";
